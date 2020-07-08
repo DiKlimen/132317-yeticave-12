@@ -1,4 +1,24 @@
 <?php
+
+function price_format($price) 
+{
+    // округление дробной части числа в большую сторону
+    $price_round = ceil($price);
+
+    // добавление разделителя тысяч в виде пробела
+    if ($price_round > 999) {
+        $price_thousands_separator = number_format($price_round, 0, ',', ' ');
+    }   
+    else {
+        $price_thousands_separator = $price_round;
+    }
+    
+    // добавление к числу знака рубля
+    $nice_price = $price_thousands_separator . " ₽.";
+    
+    return $nice_price;
+}
+
 $is_auth = rand(0, 1);
 $user_name = 'Дмитрий'; // укажите здесь ваше имя
 // добавил простой массив с категориями объявлений
@@ -93,7 +113,7 @@ $ads = [
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <!--заполните этот список из массива категорий__DONE-->
+            <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $value): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?=$value; ?></a>
@@ -118,7 +138,7 @@ $ads = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$val['price']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=price_format($val['price']); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
@@ -135,7 +155,7 @@ $ads = [
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <!--заполните этот список из массива категорий__DONE-->
+            <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $value): ?>
             <li class="nav__item">
                 <a href="pages/all-lots.html"><?=$value; ?></a>
