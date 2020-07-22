@@ -93,7 +93,7 @@ $ads = [
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <!--заполните этот список из массива категорий__DONE-->
+            <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $value): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?=$value; ?></a>
@@ -110,7 +110,7 @@ $ads = [
             <?php foreach ($ads as $key => $val): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
-                    <img src="<?=$val['img']; ?>" width="350" height="260" alt="">
+                    <img src="<?=$val['img']; ?>" width="350" height="260" alt="<?=$val['title']; ?>">
                 </div>
                 <div class="lot__info">
                     <span class="lot__category"><?=$val['category']; ?></span>
@@ -135,7 +135,7 @@ $ads = [
 <footer class="main-footer">
     <nav class="nav">
         <ul class="nav__list container">
-            <!--заполните этот список из массива категорий__DONE-->
+            <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $value): ?>
             <li class="nav__item">
                 <a href="pages/all-lots.html"><?=$value; ?></a>
