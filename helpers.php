@@ -143,4 +143,26 @@ function include_template($name, array $data = []) {
     return $result;
 }
 
+$is_auth = rand(0, 1);
+
+function price_format($price)
+{
+    // округление дробной части числа в большую сторону
+    $price_round = ceil($price);
+
+    // добавление разделителя тысяч в виде пробела
+    if ($price_round > 999) {
+        $price_thousands_separator = number_format($price_round, 0, ',', ' ');
+    }
+    else {
+        $price_thousands_separator = $price_round;
+    }
+
+    // добавление к числу знака рубля
+    $nice_price = $price_thousands_separator . " ₽.";
+
+    return $nice_price;
+}
+
+
 
