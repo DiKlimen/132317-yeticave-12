@@ -1,4 +1,4 @@
-<section class="promo">
+    <section class="promo">
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
@@ -30,7 +30,7 @@
                             <span class="lot__cost"><?= price_format($val['price']); ?></span>
                         </div>
                         <div class="lot__timer timer">
-                            <?= final_time_fonmat($val['final_date']); ?>
+                            <?= get_dt_range($val['final_date']); ?>
                         </div>
                     </div>
                 </div>

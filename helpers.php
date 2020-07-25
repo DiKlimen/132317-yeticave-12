@@ -166,18 +166,28 @@ function price_format($price)
 
 
 
-function final_time_fonmat($final_date) {
+function get_dt_range($final_date) {
+    /*
+        Получение целого числа дней до окончания лота
+    */
+
     // получаем текущий timestamp
     $ts = time();
     // в одном дне 86400 секунд
     $secs_in_day = 86400;
     // переводим конечную строковую дату в timestamp
-    $end_ts = strtotime($final_date);
+    $ts_end = strtotime($final_date);
     // Вычитаем из конечного timestamp текущий
-    $ts_diff = $end_ts - $ts;
-    // делим разницу на количество секунд в дне и округляем функцией floor до ближайшего меньшего
-    $days_until_end = floor($ts_diff / $secs_in_day);
+    $ts_diff = $ts_end - $ts;
+    // форматируем разницу timestamps до оставшихся дней
+    $days_until_end = date('d', $ts_diff);
+    // форматируем разницу timestamps до оставшихся часов
+    $hours_until_end = date('H', $ts_diff);
+    // форматируем разницу timestamps до оставшихся минут
+    $minutes_until_end = date('i', $ts_diff);
 
-    return $days_until_end;
+    $daty = $days_until_end .':' . $hours_until_end . ':' . $minutes_until_end;
+
+    return $daty;
 }
 
