@@ -12,7 +12,7 @@ $ads = [
         'category' => 'Доски и лыжи',
         'price' => 10999,
         'img' => 'img/lot-1.jpg',
-        'final_date' => '2020-07-26'
+        'final_date' => '2020-07-28'
     ],
     [
         'title' => 'DC Ply Mens 2016/2017 Snowboard',
@@ -40,14 +40,14 @@ $ads = [
         'category' => 'Одежда',
         'price' => 7500,
         'img' => 'img/lot-5.jpg',
-        'final_date' => '2020-07-26'
+        'final_date' => '2020-07-25 14:04:17'
     ],
     [
         'title' => 'Маска Oakley Canopy',
         'category' => 'Разное',
         'price' => 5400,
         'img' => 'img/lot-6.jpg',
-        'final_date' => '2020-07-30'
+        'final_date' => '2020-08-15'
     ]
 ]
 ?>
