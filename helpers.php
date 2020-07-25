@@ -166,3 +166,18 @@ function price_format($price)
 
 
 
+function final_time_fonmat($final_date) {
+    // получаем текущий timestamp
+    $ts = time();
+    // в одном дне 86400 секунд
+    $secs_in_day = 86400;
+    // переводим конечную строковую дату в timestamp
+    $end_ts = strtotime($final_date);
+    // Вычитаем из конечного timestamp текущий
+    $ts_diff = $end_ts - $ts;
+    // делим разницу на количество секунд в дне и округляем функцией floor до ближайшего меньшего
+    $days_until_end = floor($ts_diff / $secs_in_day);
+
+    return $days_until_end;
+}
+

@@ -12,14 +12,14 @@ $ads = [
         'category' => 'Доски и лыжи',
         'price' => 10999,
         'img' => 'img/lot-1.jpg',
-        'final_date' => '2020-07-25'
+        'final_date' => '2020-07-26'
     ],
     [
         'title' => 'DC Ply Mens 2016/2017 Snowboard',
         'category' => 'Доски и лыжи',
         'price' => 159999,
         'img' => 'img/lot-2.jpg',
-        'final_date' => '2020-07-25'
+        'final_date' => '2020-07-27'
     ],
     [
         'title' => 'Крепления Union Contact Pro 2015 года размер L/XL',
