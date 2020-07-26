@@ -166,3 +166,40 @@ function price_format($price)
 
 
 
+function get_dt_range($final_date) {
+
+    // получаем текущий timestamp
+    $ts = time();
+    // в одном дне 86400 секунд
+    $secs_in_day = 86400;
+    // переводим конечную строковую дату в timestamp
+    $ts_end = strtotime($final_date);
+    // Вычитаем из конечного timestamp текущий
+    $ts_diff = $ts_end - $ts;
+    // форматируем разницу timestamps до оставшихся дней
+    $days_until_end = floor($ts_diff / 86400);
+
+
+    if ($days_until_end < 1) {
+        $days_until_end = '00';
+    }
+    else if ($days_until_end >= 1 && $days_until_end < 10) {
+        $days_until_end = 0 . $days_until_end; 
+    }
+
+
+
+    // форматируем разницу timestamps до оставшихся часов
+    $hours_until_end = date('H', $ts_diff);
+    // форматируем разницу timestamps до оставшихся минут
+    $minutes_until_end = date('i', $ts_diff);
+
+    if ($days_until_end == '00' && $hours_until_end == '00') {
+        $itme_antil_end_less_then_hour = 'timer--finishing';
+    }
+
+    $days_and_hours_and_minutes_until_end = ['days' => $days_until_end, 'hours' => $hours_until_end, 'minutes' => $minutes_until_end, 'red_class' => $itme_antil_end_less_then_hour];
+
+    return $days_and_hours_and_minutes_until_end;
+}
+
