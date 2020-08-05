@@ -12,7 +12,7 @@ $ads = [
         'category' => 'Доски и лыжи',
         'price' => 10999,
         'img' => 'img/lot-1.jpg',
-        'final_date' => '2020-07-28'
+        'final_date' => '2020-08-05 22:04:17'
     ],
     [
         'title' => 'DC Ply Mens 2016/2017 Snowboard',
