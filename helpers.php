@@ -165,4 +165,39 @@ function price_format($price)
 }
 
 
-
+function get_dt_range($final_date) {
+    // узнаем разницу времени
+    $diff_time = strtotime($final_date) - time();
+    // вычилсяем оставшиеся дни, часы и минуты
+    if ($diff_time > 0) {
+        $days = floor($diff_time / 86400);
+        if ($days < 10) {
+            $days = str_pad($days, 2, "0", STR_PAD_LEFT);
+        }
+        $hours = floor(($diff_time % 86400) / 3600);
+        if ($hours < 10) {
+            $hours = str_pad($hours, 2, "0", STR_PAD_LEFT);
+        }
+        $minutes = floor(($diff_time % 3600) / 60);
+        if ($minutes < 10) {
+            $minutes = str_pad($minutes, 2, "0", STR_PAD_LEFT);
+        }
+    }
+    // если время прошло, выводим "00"
+    else {
+    $days = "00";
+    $hours = "00";
+    $minutes = "00";
+    }
+    // если осталось меньше 1 часа добавляем класс
+    if ($diff_time < 3600 && $diff_time > 0) {
+        $time_less_then_hour = "timer--finishing";
+    }
+    // возвращаем массив с данными
+    return $time_until_end = [
+        'days' => $days,
+        'hours' => $hours,
+        'minutes' => $minutes,
+        'red_class' => $time_less_then_hour
+    ];
+}
